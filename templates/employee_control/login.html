@@ -1,0 +1,27 @@
+{% extends 'app1/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    {% block nav %}
+        {% include 'app1/nav.html' %}
+    {% endblock %}
+    <div class="my-2 container">
+        <div class="card jumbotron">
+            <div class="container m-auto">
+                <h2 class="h2">Login</h2>
+                <hr>
+                <form action="{% url 'app1:user_login' %}" method="POST" class="form-group">
+                    {% csrf_token %}
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Digite seu nome de usuário">
+
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Digite sua senha">
+                    
+                    <input type="submit" class="btn btn-dark" value="Login">
+                </form>
+            </div>       
+        </div>
+    </div>
+{% endblock %}
