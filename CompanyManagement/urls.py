@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from . import settings
-from employee_control import views
+from employee_control.views import HomeView
 
 urlpatterns = [
-    path('',views.home, name='home'),
+    path('',HomeView.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('employee_control/', include('employee_control.urls')),
-] + + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
